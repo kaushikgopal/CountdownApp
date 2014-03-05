@@ -1,11 +1,21 @@
-# MyStarterApp
+# Countdown App
 
-A quick starter app that you can use to start off your Android projects.
+A simple app that the CMU SE 13 batch built together.
 
+## Goals:
 
-## Salient features
+1. Fully tested
+2. Super readable code
 
-1. A clean gradle build config
-2. A bunch of useful libs
-3. Espresso tests run
-4. Ability to use Pojos in your project and independently test them with Junit 4.
+## Features:
+
+1.
+
+## Authors:
+
+1. Aristide
+2. Shama
+3. Sumeet
+4. Kaushik
+
+## Contributors:
