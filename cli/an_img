@@ -1,0 +1,45 @@
+#!/bin/bash
+# REPO=$HOME/put/your/repo/dir/here
+
+# Generate Android resource directory structure and create lower res version of images
+function an_img_gen_res {
+
+  if [ ! -f "$1" ]; then
+      echo "File not found!"
+      return
+  fi
+
+  FILENAME=$(basename "$1")
+  DIRECTORY=$(dirname "$1")
+
+  # echo $FILENAME
+  # echo $DIRECTORY
+
+  mkdir -p "$DIRECTORY"/drawable-hdpi && \
+    mkdir -p "$DIRECTORY"/drawable-ldpi && \
+    mkdir -p "$DIRECTORY"/drawable-mdpi && \
+    mkdir -p "$DIRECTORY"/drawable-xhdpi && \
+    mkdir -p "$DIRECTORY"/drawable-xxhdpi
+
+  cp "$1" "$DIRECTORY"/drawable-xxhdpi/"$FILENAME" && \
+    convert -resize 67% "$1" "$DIRECTORY"/drawable-xhdpi/"$FILENAME" && \
+    convert -resize 50% "$1" "$DIRECTORY"/drawable-hdpi/"$FILENAME" && \
+    convert -resize 33% "$1" "$DIRECTORY"/drawable-mdpi/"$FILENAME" && \
+    convert -resize 25% "$1" "$DIRECTORY"/drawable-ldpi/"$FILENAME"
+
+  rm "$1"
+
+}
+
+
+# helper script to transfer images from the layout folders
+function an_img_transfer_res_from {
+  DEST_RES=$REPO/pkk/src/main/res
+
+  find $1 \( -iname \*.png -o -iname \*.jpg \) | while read filepath; do
+    SRC_RES=$(dirname $filepath)
+    DEST_RES_BASE=$(basename $SRC_RES)
+
+    rsync -av $SRC_RES/ $DEST_RES/$DEST_RES_BASE/
+  done
+}

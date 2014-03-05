@@ -1,0 +1,54 @@
+# built application files
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+lint.xml
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# API Keys & IDs
+data.xml
+data.xml.dev
+data.xml.prod
+analytics.xml
+analytics.xml.dev
+analytics.xml.prod
+
+# The Local Settings classes
+LocalSettings.java
+LocalSettings.java.bak
+LocalTestSettings.java
+
+# Mac-specific stuff
+.DS_Store
+
+#Maven
+target
+release.properties
+pom.xml.*
+
+#Ant
+build.xml
+ant.properties
+local.properties
+proguard.cfg
+proguard-project.txt
+
+# Gradle
+.gradle
+libraries/facebook/build
+
+# Intellij project files
+.idea/workspace.xml
+
+gen-external-apklibs/

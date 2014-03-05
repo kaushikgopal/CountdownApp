@@ -1,0 +1,52 @@
+evaluationDependsOn(':subModules:CountdownAppPojos')
+
+apply plugin: 'android'
+
+dependencies {
+
+    compile project(':subModules:CountdownAppPojos')
+
+    compile 'com.google.android.gms:play-services:3.1.+'
+
+    compile 'com.google.guava:guava:15.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'joda-time:joda-time:2.3'
+
+    compile 'com.koushikdutta.ion:ion:1.2.1'
+
+    compile 'com.jakewharton:butterknife:4.0.+'
+    compile 'com.squareup:otto:1.3.+'
+
+    instrumentTestCompile files('libs/espresso-1.1-bundled.jar')
+}
+
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "com.google.android.apps.common.testing.testrunner.GoogleInstrumentationTestRunner"
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+        debug {
+            packageNameSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+}

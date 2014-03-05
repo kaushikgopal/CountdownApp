@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/txt_sample"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Hello world!"/>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:inputType="textMultiLine"
+        android:hint="Enter your text here"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="Say Hi!"/>
+
+</LinearLayout>
