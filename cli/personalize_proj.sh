@@ -66,9 +66,9 @@ echo "Renaming files and directories within the Main App Module"
 cd $NEW_APP_MAIN_MODULE
 mv MyAppModule.iml ${NEW_APP_MAIN_MODULE}.iml
 mkdir -p src/main/java/$NEW_PACKAGE_PATH
-mkdir -p src/instrumentTest/java/$NEW_PACKAGE_PATH
+mkdir -p src/androidTest/java/$NEW_PACKAGE_PATH
 mv src/main/java/$ORIGINAL_PACKAGE_PATH/* src/main/java/$NEW_PACKAGE_PATH
-mv src/instrumentTest/java/$ORIGINAL_PACKAGE_PATH/* src/instrumentTest/java/$NEW_PACKAGE_PATH
+mv src/androidTest/java/$ORIGINAL_PACKAGE_PATH/* src/androidTest/java/$NEW_PACKAGE_PATH
 rm -rf src/main/java/$ORIGINAL_PACKAGE_PATH
 
 # Delete directories if they are empty, i.e. if the new package name is not com.pivotallabs...
@@ -76,10 +76,10 @@ rmdir src/main/java/co/kaush/mystarterapp/myappmodule > /dev/null 2>&1
 rmdir src/main/java/co/kaush/mystarterapp > /dev/null 2>&1
 rmdir src/main/java/co/kaush > /dev/null 2>&1
 rmdir src/main/java/co > /dev/null 2>&1
-rmdir src/instrumentTest/java/co/kaush/mystarterapp/myappmodule > /dev/null 2>&1
-rmdir src/instrumentTest/java/co/kaush/mystarterapp > /dev/null 2>&1
-rmdir src/instrumentTest/java/co/kaush > /dev/null 2>&1
-rmdir src/instrumentTest/java/co > /dev/null 2>&1
+rmdir src/androidTest/java/co/kaush/mystarterapp/myappmodule > /dev/null 2>&1
+rmdir src/androidTest/java/co/kaush/mystarterapp > /dev/null 2>&1
+rmdir src/androidTest/java/co/kaush > /dev/null 2>&1
+rmdir src/androidTest/java/co > /dev/null 2>&1
 
 cd ..
 
