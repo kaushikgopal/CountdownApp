@@ -2,6 +2,7 @@ package com.cmuse13.countdownapp.countdownmodule.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cmuse13.countdownapp.countdownmodule.R;
@@ -16,7 +17,6 @@ public class MainActivity
         extends BaseActivity {
 
     private TextView mDaysToGo;
-    private int tmp = 0;
 
 
     @Override
@@ -37,6 +37,7 @@ public class MainActivity
         mDaysToGo = (TextView) findViewById(R.id.days_to_go);
         final DateTime quarterEnd = new DateTime(2014, 4, 1, 0, 0);
         final Handler mHandler = new Handler();
+        final int periodLength = 90;
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
 
@@ -46,13 +47,31 @@ public class MainActivity
                 mHandler.post(new Runnable(){
                     @Override
                     public void run(){
-                        // test: funtional test
-
-                        mDaysToGo.setText(CountdownHelper.getDaysToGo(new DateTime(), quarterEnd));
+                        int daysRemaining = CountdownHelper.getDaysToGo(new DateTime(), quarterEnd);
+                        mDaysToGo.setText(String.valueOf(daysRemaining));
+                        changeBackgroundColor(daysRemaining, periodLength);
                     }
                 });
 
             }
         }, 0, 1000);
+    }
+
+    private void changeBackgroundColor(int daysRemaining, int periodLength) {
+        CountdownHelper.COLOR color = CountdownHelper.getColorForDaysToGo(daysRemaining,
+                                                                          periodLength);
+        int finalColor = 0;
+
+        switch (color) {
+            case GREEN:
+                finalColor = getResources().getColor(R.color.green);
+            case YELLOW:
+                finalColor = getResources().getColor(R.color.yellow);
+            case RED:
+                finalColor = getResources().getColor(R.color.red);
+        }
+
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_layout);
+        mainLayout.setBackgroundColor(finalColor);
     }
 }

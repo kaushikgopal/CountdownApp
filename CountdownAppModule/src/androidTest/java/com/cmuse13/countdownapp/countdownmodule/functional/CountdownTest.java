@@ -36,4 +36,5 @@ public class CountdownTest
         TextView daysToGoView = (TextView) getActivity().findViewById(R.id.days_to_go);
         assertOnScreen(mActivity.getWindow().getDecorView(), daysToGoView);
     }
+
 }

@@ -5,13 +5,30 @@ import org.joda.time.Days;
 
 public class CountdownHelper {
 
-    public static String getDaysToGo(DateTime fromDate, DateTime toDate){
+    public enum COLOR {
+        RED, GREEN, YELLOW
+    }
+
+    public static int getDaysToGo(DateTime fromDate, DateTime toDate){
 
         int daysToGo = Days.daysBetween(fromDate, toDate).getDays();
 
         if (daysToGo < 0)
-            return "0";
+            return 0;
 
-        return String.valueOf(daysToGo);
+        return daysToGo;
+    }
+
+    public static COLOR getColorForDaysToGo(int daysRemaining, int periodLength) {
+
+        float periodCovered = daysRemaining / ((float) periodLength);
+
+        if (periodCovered >= 0 && periodCovered < 0.33)
+            return COLOR.RED;
+
+        if (periodCovered >= 0.33 && periodCovered < 0.66)
+            return COLOR.YELLOW;
+
+        return COLOR.GREEN;
     }
 }
