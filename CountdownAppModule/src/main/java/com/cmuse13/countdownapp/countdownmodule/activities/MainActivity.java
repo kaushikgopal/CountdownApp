@@ -3,12 +3,15 @@ package com.cmuse13.countdownapp.countdownmodule.activities;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cmuse13.countdownapp.countdownmodule.R;
 import com.cmuse13.countdownapp.countdownmodule.fragments.BaseFragment;
+import com.cmuse13.countdownapp.countdownmodule.fragments.SettingsDialogFragment;
 import com.cmuse13.countdownapp.countdownmodule.utils.CountdownHelper;
 
 import org.joda.time.DateTime;
@@ -23,6 +26,28 @@ public class MainActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                openSettingsDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void openSettingsDialog() {
+        SettingsDialogFragment fragment = new SettingsDialogFragment();
+        fragment.show(getFragmentManager(), "settingsDialogFragment");
     }
 
     public static class MainFragment

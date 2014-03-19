@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/settings_page"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/label_start_date"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="16sp"
+        android:text="Start Date: "/>
+
+    <TextView
+        android:id="@+id/label_period"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/label_start_date"
+        android:textSize="16sp"
+        android:text="Period: "/>
+
+    <EditText
+        android:id="@+id/select_start_date"
+        android:layout_toRightOf="@id/label_start_date"
+        android:layout_width="wrap_content"
+        android:text="Change date"
+        android:layout_marginLeft="8dp"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/select_period"
+        android:layout_toRightOf="@id/label_period"
+        android:layout_below="@id/select_start_date"
+        android:layout_alignStart="@id/select_start_date"
+        android:layout_width="wrap_content"
+        android:text="0"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:layout_toRightOf="@id/select_period"
+        android:layout_below="@id/select_start_date"
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
