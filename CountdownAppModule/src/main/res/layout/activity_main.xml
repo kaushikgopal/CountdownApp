@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:id="@+id/main_layout"
-    android:orientation="vertical"
+<fragment
+    android:id="@+id/fragment_main"
+    android:name="com.cmuse13.countdownapp.countdownmodule.activities.MainActivity$MainFragment"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <TextView
-        android:id="@+id/days_to_go"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:textSize="100sp"
-        android:text="99"/>
-
-    <TextView
-        android:id="@+id/days_to_go_label"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:textSize="35sp"
-        android:text="Days to go"/>
-
-</LinearLayout>
+    xmlns:android="http://schemas.android.com/apk/res/android"/>
