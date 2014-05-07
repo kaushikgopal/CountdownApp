@@ -70,7 +70,9 @@ public class MainActivity
 
         private void startCountdown() {
             mDaysToGo = (TextView) getView().findViewById(R.id.days_to_go);
-            final DateTime quarterEnd = new DateTime(2014, 4, 1, 0, 0);
+            final DateTime today = new DateTime();
+            final int quarterEndMonth = (((((today.getMonthOfYear() - 1)) / 3 + 1) * 3) + 1) % 12;
+            final DateTime quarterEnd = new DateTime(2014, quarterEndMonth, 1, 0, 0);
             final Handler mHandler = new Handler();
             final int periodLength = 90;
 
@@ -83,7 +85,7 @@ public class MainActivity
 
                         @Override
                         public void run() {
-                            int daysRemaining = CountdownHelper.getDaysToGo(new DateTime(),
+                            int daysRemaining = CountdownHelper.getDaysToGo(today,
                                                                             quarterEnd);
                             mDaysToGo.setText(String.valueOf(daysRemaining));
                             changeBackgroundColor(daysRemaining, periodLength);
@@ -102,10 +104,13 @@ public class MainActivity
             switch (color) {
                 case GREEN:
                     finalColor = getResources().getColor(R.color.green);
+                    break;
                 case YELLOW:
                     finalColor = getResources().getColor(R.color.yellow);
+                    break;
                 case RED:
                     finalColor = getResources().getColor(R.color.red);
+                    break;
             }
 
             getView().setBackgroundColor(finalColor);
